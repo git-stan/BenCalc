@@ -20,16 +20,16 @@ void bencalc::menu()
 {
 
      cout << "Hey Benny!\n";
-     cout << "Willst du Present Value[1] oder Future Value[2] oder Net Present Value[3] berechnen ? ";
+     cout << "Do you want to calculate Present Value[1] or Future Value[2] or Net Present Value[3] ? ";
      cin  >> method;
 
-            cout << "Gib hier deinen Betrag ein(in Euro): ";
+            cout << "Value(in Euro): ";
             cin >> k;
 
-            cout << "\nDanke und jetzt die Laufzeit(Number of Periods): ";
+            cout << "\nNumber of Periods: ";
             cin >> t;
 
-            cout << "\nUnd zu letzt den Zinssatz(Interest rate(% per period)): ";
+            cout << "\nInterest rate(% per period): ";
             cin >> r;
 }
 void bencalc::calc_res()
@@ -40,33 +40,33 @@ void bencalc::calc_res()
     futureV fV;
     netpresentV nPV;
 
-            r /= 100;
+            r /= 100; 
 
-    switch(method)
+    switch(method) //switch for the methode
     {
-        case 1:  pV.calc(k,t,r);
+        case 1:  pV.calc(k,t,r); // call present value calc function
                  break;
 
-        case 2:  fV.calc(k,t,r);
+        case 2:  fV.calc(k,t,r); //call future value calc function
                  break;
 
-        case 3: cout << "Number of cashflows?: ";
-                cin >> cashflows;
-                cout << "Gib hier deine Cashflows ein.\n";
-                for(int a = 0; a < cashflows;a++){
+        case 3: cout << "Number of cashflows: "; //ask for the cashflows 
+                cin >> cashflows;                   //size of the array
+                cout << "Your Cashflows.\n"; 
+                for (int a = 0; a < cashflows;a++) {
 
-                    cout << "cashflow :";
+                    cout << "cashflow :"; //type in yor cashflows
                     cin  >> arry_cashflows[a];
 
                 }
-                nPV.calc(cashflows, arry_cashflows,k,t,r);
+                nPV.calc(cashflows, arry_cashflows,k,t,r); //call net present value calc function
     }
 }
 void bencalc::print_result(double ergebnis)
 {
     const char * format = "%.2f";
     cout.precision(15);
-            cout << "\nDer Barwert betraegt: ";
+            cout << "\nYour Value is: ";
             printf(format, ergebnis);
             cout << " Euro\n";
 }
