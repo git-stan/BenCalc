@@ -22,7 +22,6 @@ void bencalc::menu()
      cout << "Hey Benny!\n";
      cout << "Willst du Present Value[1] oder Future Value[2] oder Net Present Value[3] berechnen ? ";
      cin  >> method;
-    // if(method != 1 && method != 2 && method != 3){throw 1;}
 
             cout << "Gib hier deinen Betrag ein(in Euro): ";
             cin >> k;
